@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <%= render "layouts/header" %>
+
   <% flash.each do |type, msg| %>
     <%= content_tag :div, msg, class: "flash-#{type}" %>
   <% end %>
