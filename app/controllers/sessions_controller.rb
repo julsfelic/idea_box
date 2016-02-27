@@ -8,6 +8,9 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to @user
+    else
+      flash[:error] = "Invalid login info"
+      render :new
     end
   end
 end
