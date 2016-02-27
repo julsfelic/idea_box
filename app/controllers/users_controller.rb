@@ -7,8 +7,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:success] = 'Welcome to the Idea Box Project'
+      flash[:success] = "Welcome to the Idea Box Project"
       redirect_to @user
+    else
+      flash.now[:error] = "Invalid field(s). Please fill out form."
+      render :new
     end
   end
 
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:username, :password)
-    end
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
 end
