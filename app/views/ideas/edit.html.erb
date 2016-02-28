@@ -1,6 +1,6 @@
 <h1>Edit Idea</h1>
 
-<%= form_for(@idea) do |f| %>
+<%= form_for([@user, @idea]) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 

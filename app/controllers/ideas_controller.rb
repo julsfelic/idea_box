@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
-  before_action :find_user, only: [:index, :new]
-  before_action :redirect_if_not_correct_user, only: [:index]
+  before_action :find_user, except: :destroy
+  before_action :redirect_if_not_correct_user, only: [:index, :show]
+  before_action :find_idea, only: [:show, :edit, :update, :destroy]
 
   def index
     @ideas = @user.ideas
@@ -12,10 +13,9 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
-    @user = @idea.user
 
     if @idea.save
-      redirect_to idea_path(@idea)
+      redirect_to user_idea_path(@user, @idea)
     else
       flash.now[:error] = "Idea must have a name"
       render :new
@@ -23,19 +23,15 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = Idea.find(params[:id])
   end
 
   def edit
-    @idea = Idea.find(params[:id])
   end
 
   def update
-    @idea = Idea.find(params[:id])
-
     if @idea.update(idea_params)
       flash[:success] = "Idea successfully updated!"
-      redirect_to @idea
+      redirect_to user_idea_path(@user, @idea)
     else
       flash.now[:error] = "Name cannot be blank."
       render :edit
@@ -43,7 +39,7 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    @idea = Idea.find(params[:id]).destroy
+    @idea.destroy
     flash[:notice] = "#{@idea.name} has been deleted."
     redirect_to user_ideas_path(current_user)
   end
@@ -57,5 +53,9 @@ class IdeasController < ApplicationController
 
   def find_user
     @user = User.find(params[:user_id])
+  end
+
+  def find_idea
+    @idea = Idea.find(params[:id])
   end
 end

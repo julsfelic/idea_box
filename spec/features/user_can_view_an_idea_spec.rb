@@ -6,7 +6,7 @@ RSpec.feature "User can view an idea" do
     login(user)
     idea = user.ideas.last
 
-    visit idea_path(idea)
+    visit user_idea_path(user, idea)
 
     expect(page).to have_content(idea.name)
     expect(page).to have_content(idea.description)
