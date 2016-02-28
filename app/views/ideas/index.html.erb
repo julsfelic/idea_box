@@ -3,7 +3,7 @@
 <ul class="ideas">
   <% @ideas.each do |idea| %>
     <li>
-      <h2><%= idea.name %></h2>
+      <h2><%= link_to idea.name, idea %></h2>
       <p><%= idea.description %></p>
     </li>
   <% end %>
