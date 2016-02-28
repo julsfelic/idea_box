@@ -30,6 +30,9 @@ class IdeasController < ApplicationController
     if @idea.update(idea_params)
       flash[:success] = "Idea successfully updated!"
       redirect_to @idea
+    else
+      flash.now[:error] = "Name cannot be blank."
+      render :edit
     end
   end
 

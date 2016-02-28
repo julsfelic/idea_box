@@ -5,12 +5,12 @@ RSpec.feature "User can edit an idea" do
     user = FactoryGirl.create(:user_with_idea)
     login(user)
     idea = user.ideas.last
-    new_idea = "New idea"
+    new_name = "New idea"
     new_description = "New description"
 
     visit idea_path(idea)
     click_link "Edit Idea"
-    fill_in "Name", with: new_idea
+    fill_in "Name", with: new_name
     fill_in "Description", with: new_description
     click_button "Save Edits"
 
@@ -18,7 +18,27 @@ RSpec.feature "User can edit an idea" do
     within(".flash-success") do
       expect(page).to have_content("Idea successfully updated!")
     end
-    expect(page).to have_content(new_idea)
+    expect(page).to have_content(new_name)
     expect(page).to have_content(new_description)
+  end
+
+  context "with empty name" do
+    scenario "they see an error message" do
+      user = FactoryGirl.create(:user_with_idea)
+      login(user)
+      idea = user.ideas.last
+      invalid_name = ""
+      new_description = "New Description"
+
+      visit idea_path(idea)
+      click_link "Edit Idea"
+      fill_in "Name", with: invalid_name
+      fill_in "Description", with: new_description
+      click_button "Save Edits"
+
+      within(".flash-error") do
+        expect(page).to have_content("Name cannot be blank.")
+      end
+    end
   end
 end
