@@ -1,0 +1,10 @@
+<h1>My Ideas</h1>
+
+<ul class="ideas">
+  <% @ideas.each do |idea| %>
+    <li>
+      <h2><%= idea.name %></h2>
+      <p><%= idea.description %></p>
+    </li>
+  <% end %>
+</ul>
