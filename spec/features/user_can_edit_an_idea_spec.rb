@@ -8,13 +8,13 @@ RSpec.feature "User can edit an idea" do
     new_name = "New idea"
     new_description = "New description"
 
-    visit idea_path(idea)
+    visit user_idea_path(user, idea)
     click_link "Edit Idea"
     fill_in "Name", with: new_name
     fill_in "Description", with: new_description
     click_button "Save Edits"
 
-    expect(current_path).to eq(idea_path(idea))
+    expect(current_path).to eq(user_idea_path(user, idea))
     within(".flash-success") do
       expect(page).to have_content("Idea successfully updated!")
     end
@@ -30,7 +30,7 @@ RSpec.feature "User can edit an idea" do
       invalid_name = ""
       new_description = "New Description"
 
-      visit idea_path(idea)
+      visit user_idea_path(user, idea)
       click_link "Edit Idea"
       fill_in "Name", with: invalid_name
       fill_in "Description", with: new_description

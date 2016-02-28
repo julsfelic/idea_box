@@ -4,5 +4,5 @@
   <p><%= @idea.description %></p>
 </div>
 
-<%= link_to "Edit Idea", edit_idea_path(@idea) %>
-<%= link_to "Delete Idea", @idea, method: :delete %>
+<%= link_to "Edit Idea", edit_user_idea_path(@user, @idea) %>
+<%= link_to "Delete Idea", user_idea_path(@user, @idea), method: :delete %>

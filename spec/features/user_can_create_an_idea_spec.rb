@@ -15,7 +15,7 @@ RSpec.feature "User can create an idea" do
 
     idea = user.ideas.last
 
-    expect(current_path).to eq(idea_path(idea))
+    expect(current_path).to eq(user_idea_path(user, idea))
     within(".idea") do
       expect(page).to have_content(idea_description)
     end
