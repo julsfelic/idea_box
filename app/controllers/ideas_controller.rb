@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :find_user, except: :destroy
-  before_action :redirect_if_not_correct_user, only: [:index, :show]
+  before_action :redirect_if_not_correct_user, only: [:index, :show, :new]
   before_action :find_idea, only: [:show, :edit, :update, :destroy]
 
   def index
