@@ -6,9 +6,9 @@ FactoryGirl.define do
   end
 
   factory :user do
-    username "julsfelic"
-    first_name "Julian"
-    last_name "Feliciano"
+    sequence(:username) { |n| "username #{n}" }
+    sequence(:first_name) { |n| "Julian #{n}" }
+    sequence(:last_name) { |n| "Feliciano #{n}" }
     password "password"
 
     factory(:user_with_idea) do

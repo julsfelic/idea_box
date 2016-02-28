@@ -1,11 +1,12 @@
 class IdeasController < ApplicationController
+  before_action :find_user, only: [:index, :new]
+  before_action :redirect_if_not_correct_user, only: [:index]
+
   def index
-    @user = User.find(params[:user_id])
     @ideas = @user.ideas
   end
 
   def new
-    @user = User.find(params[:user_id])
     @idea = Idea.new
   end
 
@@ -52,5 +53,9 @@ class IdeasController < ApplicationController
   def idea_params
     params.require(:idea).permit(:name, :description).
            merge(user_id: params[:user_id])
+  end
+
+  def find_user
+    @user = User.find(params[:user_id])
   end
 end
