@@ -3,7 +3,7 @@ FactoryGirl.define do
     description "MyString"
     user nil
   end
-  
+
   factory :user do
     username "julsfelic"
     first_name "Julian"

@@ -6,9 +6,13 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
+    @user = @idea.user
 
     if @idea.save
       redirect_to idea_path(@idea)
+    else
+      flash.now[:error] = "Idea must have a name"
+      render :new
     end
   end
 
@@ -19,6 +23,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:description).merge(user_id: params[:user_id])
+    params.require(:idea).permit(:name, :description).
+           merge(user_id: params[:user_id])
   end
 end
