@@ -42,6 +42,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'database_cleaner'
+  gem 'mocha'
 end
 
 group :development do
