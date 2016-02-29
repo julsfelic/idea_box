@@ -1,4 +1,4 @@
 <h1><%= @user.username %></h1>
 
-<%= link_to "My Ideas", user_ideas_path(@user) %>
-<%= link_to "New Idea", new_user_idea_path(@user) %>
+<%= link_to "My Ideas", user_ideas_path(@user), class: "btn" %>
+<%= link_to "New Idea", new_user_idea_path(@user), class: "btn" %>

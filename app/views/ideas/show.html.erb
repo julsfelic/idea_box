@@ -2,6 +2,7 @@
 
 <div class="idea">
   <p><%= @idea.description %></p>
+  <p>Category: <%= @idea.category.name %></p>
 </div>
 
 <%= link_to "Edit Idea", edit_user_idea_path(@user, @idea) %>
