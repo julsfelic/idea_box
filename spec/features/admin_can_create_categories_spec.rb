@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature "Admin can create categories" do
   scenario "they see categories they have created" do
-    admin = User.create(username: "kimi", first_name: "Kimiko", last_name: "Kano", role: 1)
-    allow_any_instance_of(Admin::BaseController).to receive(:current_user).and_return(admin)
+    admin = User.create(username: "kimikimi", password: "password", role: 1)
+    login(admin)
 
     visit new_admin_category_path
     fill_in "Name", with: "Websites"
@@ -19,7 +19,7 @@ RSpec.feature "Admin can create categories" do
   context "default user does not see categories index" do
     scenario "they see an error message on categories path" do
       user = FactoryGirl.create(:user)
-      allow_any_instance_of(Admin::BaseController).to receive(:current_user).and_return(user)
+      login(user)
 
       visit admin_categories_path
       expect(page).to_not have_content "All Categories"

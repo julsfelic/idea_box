@@ -1,0 +1,100 @@
+/* Sitewide */
+
+body {
+  background-color: rgb(223,189,162);
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  margin: 0;
+}
+
+a {
+  color: #000;
+}
+
+h1 {
+  font-family: 'Ovo', sans-serif;
+  font-size: 4rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.flash {
+  font-size: 2rem;
+  padding-top: 20px;
+  text-align: center;
+}
+
+/* Header */
+
+.site-nav li {
+  display: inline-block;
+  padding: 10px 30px;
+}
+
+.site-nav a {
+  color: #000;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+/* Main Page */
+
+.callout {
+  font-family: 'Ovo', sans-serif;
+  font-size: 6rem;
+  margin-top: 140px;
+}
+
+.btn {
+  border: 2px solid #000;
+  border-radius: 20px;
+  color: #000;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  width: 125px;
+}
+
+/* Forms */
+
+form {
+  margin: 0 auto;
+  text-align: left;
+  width: 600px;
+}
+
+label {
+  display: block;
+  font-size: 1.4rem;
+  padding-bottom: 10px;
+}
+
+textarea {
+  display: block;
+  font-size: 1.1rem;
+  height: 200px;
+  width: 100%;
+}
+
+input[type=text], input[type=password] {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  padding: 4px;
+  width: 100%;
+}
+
+/* Ideas */
+
+.idea {
+  font-size: 1.4rem;
+}

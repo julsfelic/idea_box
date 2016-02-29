@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.feature "User can create an idea" do
+  before(:each) do
+    Category.create(name: "Example")
+  end
+
   scenario "they see the page for the newly created idea" do
     user = FactoryGirl.create(:user)
     login(user)
@@ -11,6 +15,7 @@ RSpec.feature "User can create an idea" do
     click_link "New Idea"
     fill_in "Name", with: idea_name
     fill_in "Description", with: idea_description
+    select "Example", from: "idea[category_id]"
     click_button "Create Idea"
 
     idea = user.ideas.last

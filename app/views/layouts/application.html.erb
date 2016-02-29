@@ -3,6 +3,8 @@
 <head>
   <title>IdeaBox</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link href='https://fonts.googleapis.com/css?family=Ovo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,10 +13,12 @@
   <%= render "layouts/header" %>
 
   <% flash.each do |type, msg| %>
-    <%= content_tag :div, msg, class: "flash-#{type}" %>
+    <%= content_tag :div, msg, class: "flash-#{type} flash" %>
   <% end %>
 
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -1,11 +1,12 @@
 FactoryGirl.define do
   factory :category do
-    name "MyString"
-    idea nil
+    sequence(:name) { |n| "Category #{n}" }
   end
+
   factory :idea do
     sequence(:name) { |n| "Idea Name #{n}" }
     sequence(:description) { |n| "Idea Description #{n}" }
+    category
     user
   end
 
