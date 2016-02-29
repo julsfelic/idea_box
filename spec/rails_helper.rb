@@ -7,6 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require "capybara/rspec"
 require "helpers/feature_spec_helper"
+require "mocha/mini_test"
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

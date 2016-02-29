@@ -1,0 +1,9 @@
+<h1>All Categories</h1>
+
+<ul class="categories">
+  <% @categories.each do |category| %>
+    <li>
+      <h2><%= "#{category.name}" %></h2>
+    </li>
+  <% end %>
+</ul>

@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :category do
+    name "MyString"
+    idea nil
+  end
   factory :idea do
     sequence(:name) { |n| "Idea Name #{n}" }
     sequence(:description) { |n| "Idea Description #{n}" }
