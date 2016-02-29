@@ -5,6 +5,9 @@
     <li>
       <h2><%= link_to idea.name, user_idea_path(@user, idea) %></h2>
       <p><%= idea.description %></p>
+      <% if idea.category %>
+        <p><%= "Category: #{idea.category.name}" %></p>
+      <% end %>
     </li>
   <% end %>
 </ul>
