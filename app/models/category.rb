@@ -1,3 +1,4 @@
 class Category < ActiveRecord::Base
-  belongs_to :idea
+  has_many :ideas
+  validates :name, presence: true, uniqueness: {case_sensitive: false}
 end
